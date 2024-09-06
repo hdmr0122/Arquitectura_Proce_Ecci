@@ -97,7 +97,7 @@ end
 
 ### **Simulacion GTKWave**:
 
-![SIM](./IMG/SIM.png)
+![SIM](./IMG/SIM.PNG)
 
 Con la ayuda de la herramienta de simulacion GTK podemos ver el funcionamiento del programa antes de cargarlo a nuestra FPGA, una vez ejecutado podemos ver la señal de entrada A y B junto al Carry .
 
