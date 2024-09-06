@@ -1,5 +1,5 @@
-`include "sum1b_primitive.v"
-`include "sum1b.v"
+//`include "sum1b_primitive.v"
+//`include "sum1b.v"
 
 `timescale 1ns/1ns
 
