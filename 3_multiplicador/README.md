@@ -138,15 +138,6 @@ FSM Control (always @(negedge clk)): Este bloque implementa la FSM que controla 
  // bloque comparador 
     assign z = (B==0)? 1'b1 : 1'b0;
 
-endmodule
-
+//endmodule
 ```
-
-
-### **Simulacion GTKWave**:
-
-![SIM](./IMG/SIM.PNG)
-
-Con la ayuda de la herramienta de simulacion GTK podemos ver el funcionamiento del programa antes de cargarlo a nuestra FPGA, una vez ejecutado podemos ver la señal de entrada A y B junto al Carry .
-
-Variando entre los dos posibles estados de los Bit originales logramos tener todos los posibles resultados confirmando el resultado de la tabla de verdad.
+fn.
