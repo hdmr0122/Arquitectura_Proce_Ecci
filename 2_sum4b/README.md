@@ -1,4 +1,9 @@
 ## Arquitectura de Procesadores
+### **Integrantes**:
+
+* Henry Martinez
+* Santiago Silva
+* Julian Rojas
 ## Documentacion Sumador de 4 bits
 
 
