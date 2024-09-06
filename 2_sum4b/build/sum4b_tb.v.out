@@ -1,0 +1,209 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000027e90010eb0 .scope module, "sum4b_tb" "sum4b_tb" 2 4;
+ .timescale -9 -9;
+v0000027e90072fb0_0 .var "A_tb", 3 0;
+v0000027e90073050_0 .var "B_tb", 3 0;
+v0000027e90072290_0 .net "Cout_tb", 0 0, L_0000027e90073870;  1 drivers
+v0000027e90073230_0 .net "Sum_tb", 3 0, L_0000027e90072a10;  1 drivers
+S_0000027e900111d0 .scope begin, "TEST_CASE" "TEST_CASE" 2 31, 2 31 0, S_0000027e90010eb0;
+ .timescale -9 -9;
+S_0000027e900188b0 .scope module, "uut" "sum4b" 2 13, 3 3 0, S_0000027e90010eb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "A";
+    .port_info 1 /INPUT 4 "B";
+    .port_info 2 /OUTPUT 1 "Cout";
+    .port_info 3 /OUTPUT 4 "Sum";
+v0000027e90072790_0 .net "A", 3 0, v0000027e90072fb0_0;  1 drivers
+v0000027e90073f50_0 .net "B", 3 0, v0000027e90073050_0;  1 drivers
+v0000027e90072830_0 .net "Cout", 0 0, L_0000027e90073870;  alias, 1 drivers
+v0000027e90072d30_0 .net "Sum", 3 0, L_0000027e90072a10;  alias, 1 drivers
+v0000027e90072dd0_0 .net "c1", 0 0, L_0000027e900728d0;  1 drivers
+v0000027e90072ab0_0 .net "c2", 0 0, L_0000027e90072970;  1 drivers
+v0000027e900739b0_0 .net "c3", 0 0, L_0000027e90073190;  1 drivers
+L_0000027e90073a50 .part v0000027e90072fb0_0, 0, 1;
+L_0000027e90072e70 .part v0000027e90073050_0, 0, 1;
+L_0000027e900730f0 .part v0000027e90072fb0_0, 1, 1;
+L_0000027e90072c90 .part v0000027e90073050_0, 1, 1;
+L_0000027e90073b90 .part v0000027e90072fb0_0, 2, 1;
+L_0000027e90072f10 .part v0000027e90073050_0, 2, 1;
+L_0000027e90073d70 .part v0000027e90072fb0_0, 3, 1;
+L_0000027e90072470 .part v0000027e90073050_0, 3, 1;
+L_0000027e90072a10 .concat8 [ 1 1 1 1], L_0000027e900723d0, L_0000027e90072650, L_0000027e90072330, L_0000027e90073cd0;
+S_0000027e90018a40 .scope module, "s0" "sum1b" 3 14, 4 1 0, S_0000027e900188b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "Ci";
+    .port_info 3 /OUTPUT 1 "Cout";
+    .port_info 4 /OUTPUT 1 "Sum";
+v0000027e9000e370_0 .net "A", 0 0, L_0000027e90073a50;  1 drivers
+v0000027e9000e7d0_0 .net "B", 0 0, L_0000027e90072e70;  1 drivers
+L_0000027e90075088 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0000027e9000e410_0 .net "Ci", 0 0, L_0000027e90075088;  1 drivers
+v0000027e9000ddd0_0 .net "Cout", 0 0, L_0000027e900728d0;  alias, 1 drivers
+v0000027e9000e870_0 .net "Sum", 0 0, L_0000027e900723d0;  1 drivers
+v0000027e9000de70_0 .var "result", 1 0;
+E_0000027e90005330 .event anyedge, v0000027e9000e370_0, v0000027e9000e7d0_0, v0000027e9000e410_0;
+L_0000027e900723d0 .part v0000027e9000de70_0, 0, 1;
+L_0000027e900728d0 .part v0000027e9000de70_0, 1, 1;
+S_0000027e8ffe2bb0 .scope module, "s1" "sum1b" 3 15, 4 1 0, S_0000027e900188b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "Ci";
+    .port_info 3 /OUTPUT 1 "Cout";
+    .port_info 4 /OUTPUT 1 "Sum";
+v0000027e9000e910_0 .net "A", 0 0, L_0000027e900730f0;  1 drivers
+v0000027e9000da10_0 .net "B", 0 0, L_0000027e90072c90;  1 drivers
+v0000027e9000dc90_0 .net "Ci", 0 0, L_0000027e900728d0;  alias, 1 drivers
+v0000027e9000db50_0 .net "Cout", 0 0, L_0000027e90072970;  alias, 1 drivers
+v0000027e9000dd30_0 .net "Sum", 0 0, L_0000027e90072650;  1 drivers
+v0000027e9000dfb0_0 .var "result", 1 0;
+E_0000027e90005430 .event anyedge, v0000027e9000e910_0, v0000027e9000da10_0, v0000027e9000ddd0_0;
+L_0000027e90072650 .part v0000027e9000dfb0_0, 0, 1;
+L_0000027e90072970 .part v0000027e9000dfb0_0, 1, 1;
+S_0000027e8ffe2d40 .scope module, "s2" "sum1b" 3 16, 4 1 0, S_0000027e900188b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "Ci";
+    .port_info 3 /OUTPUT 1 "Cout";
+    .port_info 4 /OUTPUT 1 "Sum";
+v0000027e9000e050_0 .net "A", 0 0, L_0000027e90073b90;  1 drivers
+v0000027e9000e550_0 .net "B", 0 0, L_0000027e90072f10;  1 drivers
+v0000027e9000e0f0_0 .net "Ci", 0 0, L_0000027e90072970;  alias, 1 drivers
+v0000027e9000e4b0_0 .net "Cout", 0 0, L_0000027e90073190;  alias, 1 drivers
+v0000027e9000e190_0 .net "Sum", 0 0, L_0000027e90072330;  1 drivers
+v0000027e9000e230_0 .var "result", 1 0;
+E_0000027e900059b0 .event anyedge, v0000027e9000e050_0, v0000027e9000e550_0, v0000027e9000db50_0;
+L_0000027e90072330 .part v0000027e9000e230_0, 0, 1;
+L_0000027e90073190 .part v0000027e9000e230_0, 1, 1;
+S_0000027e90014740 .scope module, "s3" "sum1b" 3 17, 4 1 0, S_0000027e900188b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "Ci";
+    .port_info 3 /OUTPUT 1 "Cout";
+    .port_info 4 /OUTPUT 1 "Sum";
+v0000027e9000e2d0_0 .net "A", 0 0, L_0000027e90073d70;  1 drivers
+v0000027e90072150_0 .net "B", 0 0, L_0000027e90072470;  1 drivers
+v0000027e90073eb0_0 .net "Ci", 0 0, L_0000027e90073190;  alias, 1 drivers
+v0000027e900726f0_0 .net "Cout", 0 0, L_0000027e90073870;  alias, 1 drivers
+v0000027e900720b0_0 .net "Sum", 0 0, L_0000027e90073cd0;  1 drivers
+v0000027e900721f0_0 .var "result", 1 0;
+E_0000027e90005ab0 .event anyedge, v0000027e9000e2d0_0, v0000027e90072150_0, v0000027e9000e4b0_0;
+L_0000027e90073cd0 .part v0000027e900721f0_0, 0, 1;
+L_0000027e90073870 .part v0000027e900721f0_0, 1, 1;
+    .scope S_0000027e90018a40;
+T_0 ;
+    %wait E_0000027e90005330;
+    %load/vec4 v0000027e9000e370_0;
+    %pad/u 2;
+    %load/vec4 v0000027e9000e7d0_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0000027e9000e410_0;
+    %pad/u 2;
+    %add;
+    %store/vec4 v0000027e9000de70_0, 0, 2;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000027e8ffe2bb0;
+T_1 ;
+    %wait E_0000027e90005430;
+    %load/vec4 v0000027e9000e910_0;
+    %pad/u 2;
+    %load/vec4 v0000027e9000da10_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0000027e9000dc90_0;
+    %pad/u 2;
+    %add;
+    %store/vec4 v0000027e9000dfb0_0, 0, 2;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0000027e8ffe2d40;
+T_2 ;
+    %wait E_0000027e900059b0;
+    %load/vec4 v0000027e9000e050_0;
+    %pad/u 2;
+    %load/vec4 v0000027e9000e550_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0000027e9000e0f0_0;
+    %pad/u 2;
+    %add;
+    %store/vec4 v0000027e9000e230_0, 0, 2;
+    %jmp T_2;
+    .thread T_2, $push;
+    .scope S_0000027e90014740;
+T_3 ;
+    %wait E_0000027e90005ab0;
+    %load/vec4 v0000027e9000e2d0_0;
+    %pad/u 2;
+    %load/vec4 v0000027e90072150_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0000027e90073eb0_0;
+    %pad/u 2;
+    %add;
+    %store/vec4 v0000027e900721f0_0, 0, 2;
+    %jmp T_3;
+    .thread T_3, $push;
+    .scope S_0000027e90010eb0;
+T_4 ;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0000027e90072fb0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0000027e90073050_0, 0, 4;
+T_4.0 ;
+    %load/vec4 v0000027e90073050_0;
+    %pad/u 32;
+    %cmpi/u 15, 0, 32;
+    %jmp/0xz T_4.1, 5;
+    %load/vec4 v0000027e90073050_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_4.2, 4;
+    %load/vec4 v0000027e90072fb0_0;
+    %addi 1, 0, 4;
+    %store/vec4 v0000027e90072fb0_0, 0, 4;
+T_4.2 ;
+    %delay 5, 0;
+    %vpi_call 2 26 "$display", "el valor de %d + %d = %d", v0000027e90072fb0_0, v0000027e90073050_0, v0000027e90073230_0 {0 0 0};
+    %load/vec4 v0000027e90073050_0;
+    %addi 1, 0, 4;
+    %store/vec4 v0000027e90073050_0, 0, 4;
+    %jmp T_4.0;
+T_4.1 ;
+    %vpi_call 2 28 "$finish" {0 0 0};
+    %end;
+    .thread T_4;
+    .scope S_0000027e90010eb0;
+T_5 ;
+    %fork t_1, S_0000027e900111d0;
+    %jmp t_0;
+    .scope S_0000027e900111d0;
+t_1 ;
+    %vpi_call 2 32 "$dumpfile", "sum4b_tb.vcd" {0 0 0};
+    %vpi_call 2 33 "$dumpvars", 32'sb11111111111111111111111111111111, S_0000027e900188b0 {0 0 0};
+    %end;
+    .scope S_0000027e90010eb0;
+t_0 %join;
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "sum4b_tb.v";
+    "./sum4b.v";
+    "./sum1b.v";
