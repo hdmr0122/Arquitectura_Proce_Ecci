@@ -60,9 +60,19 @@ module restador_4bit (
 
 ### 3.Implementacion FPGA
 ---------------------------------------------------
-Generamos por terminal del visual la simulacion del sumador de 4 bits por GTKWAVE:
+Validamos el diagrama generado por el codigo para aseguranos tanto teoricamente como funcional su correcto funcionamiento.
 
-1.Configuracion Pines FPGA
-Simulacion:
-![gtkwave4bits](./Imag/gtkwave.PNG)
+1.Codigo Quartus
+![gtkwave4bits](./Nueva%20carpeta/Cod%20verilog.jpeg)
 
+2.Diagrama Quartus
+![gtkwave4bits](./Nueva%20carpeta/Resta%20Diag.jpeg)
+
+3.PinPLaner Distribucion:
+![gtkwave4bits](./Nueva%20carpeta/Pinplan.jpeg)
+
+4.Resultados FPGA:
+![gtkwave4bits](./Nueva%20carpeta/Fun1.jpeg)
+![gtkwave4bits](./Nueva%20carpeta/Fun2.jpeg)
+
+EL modulo restador_4bit utiliza un sumador de 4 bits para llevar a cabo la resta. Primero, modifica los bits del número que se va a restar (B) según el bit de de entrada (Sel). Después, envía estos datos ajustados al sumador de 4 bits para calcular el resultado de la resta y determinar si hubo un préstamo final.esta implementacion permite realizar restas en los sistemas digitales de manera correcta.
