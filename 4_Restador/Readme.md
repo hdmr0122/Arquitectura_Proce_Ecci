@@ -13,64 +13,56 @@
 
  Un restador de 4 bits es un circuito digital utilizado para realizar operaciones de sustracción en números binarios de 4 bits. En términos más sencillos, puede restar dos números binarios de 4 bits entre sí.
 
- El Restador de 4 bits es un circuito digital que realiza la suma de dos numeros binarios de 4 bits, este sumador permite sumar dos numeros binarios de 4 y producir una suma de hasta 5 bits esto debido a un bit de acarreo.
 
-El sumador de 4 bits se basa en cuatro sumadores completos de 1 bit conectados en casacada, cada sumador tiene tres entradas , dos bits que se van a sumar y una entrada de acareo y con dos salidas el bit de suma y el bit de acareo.
+![Restador](./Nueva%20carpeta/resta1.png)
 
-![sumador](./Imag/sumador%204.PNG)
-
-### 2.Explicacion Codigo Sumador 4 bits
+### 2.Explicacion Codigo Restadorr 4 bits
 ---------------------------------------------------------------
-1.Para poder empezar con nuestro sumador de 4 bits necesitamos inckuir el archivo de sumador de 1 bit ya que es requerido para asi lograr generar el sumador de 4 bits
+1.Este código es un módulo en Verilog que implementa un restador de 4 bits utilizando un sumador de 4 bits (sum4bit.v).
 
 
 
 ```
-`include "sum1b.v"
-```
-2.Teniendo nuestro sumador de 4 bits procedemos a definir nuestro modulo principal que sera el modulo de sumador de 4 bits asignandole  2 vectores de 4 bits , el primero A que representara el primer numero binario de entrada y el  segundo B sera el segundo numero binario de entrada. con un vector de 4 bit que representara la suma de los dos numeros binarios Sum.
-```
+`include "sum4bit.v"
 
-module sum4b (
-        input  [3:0] A, \\primer numero binario
-        input  [3:0] B, \\segundo numero binario
-        output    Cout, \\bit de salida (acarreo)
-        output [3:0] Sum \\suma de los dos numeros binarios A y B
+```
+2.Procedemos  a definir nuestras entradas A(Minuendo 4 bits) , B(Sustraendo 4 bits) Y Sel(bit acarreo).
+
+Tambien nuestras salidas salida y Co.
+
+```
+module restador_4bit (
+        input [3:0] A,      // Minuendo de 4 bits
+        input  [3:0] B,    // Sustraendo de 4 bits
+        input  Sel,       // Préstamo de entrada
+        output  [3:0] salida, // Diferencia de 4 bits
+        output  Co        // Préstamo de salida final
     );
-
 ```
-3.Declaracion de las Señales Internas para propagar los acareos entre los sumadores de 1 bit
+3.Declaracion de las Señales Internas para ajustar los bits del sustraendo en funcion del prestamo de entrada.
 ```
-wire c1,c2,c3;
-wire c_out; 
+ wire b0, b1, b2, b3;
+ wire salida, Co ;
+    
 ```
-4.Instancias de Sumadores de 1 bit
+4.Configuracion Sustraendo, En este diseño, para ajustar el sustraendo B se utiliza una operación XOR (^). Esta operación XOR sirve para "negar" los bits del sustraendo en función del bit de préstamo de entrada (Sel).
 ```
-  sum1b s0 (.A(A[0]), .B(B[0]), .Ci(1'b0),  .Cout(c1) ,.Sum(Sum[0]));
-  sum1b s1 (.A(A[1]), .B(B[1]), .Ci(c1), .Cout(c2) ,.Sum(Sum[1]));
-  sum1b s2 (.A(A[2]), .B(B[2]), .Ci(c2), .Cout(c3) ,.Sum(Sum[2]));
-  sum1b s3 (.A(A[3]), .B(B[3]), .Ci(c3), .Cout(Cout) ,.Sum(Sum[3]));
+    assign b0 = B[0]^Sel;
+    assign b1 = B[1]^Sel;
+    assign b2 = B[2]^Sel;
+    assign b3 = B[3]^Sel;
+    
 ```
-*sum1b s0: Suma los bits menos significativos de A y B . No tiene acarreo de entrada ci = 0.
+5.Instanciacion del sumador de 4 bits
+```
+  sum4b s0 (.A(A), .B({b3, b2, b1, b0}), .CI(Sel),  .Cout(Co) ,.Sum(salida));
+```
 
-*sum1b s1: Suma los siguientes bits A[1] y B[1], con el acarreo de salida del sumador anterior (c1) como acarreo de entrada (Ci). La salida del acarreo (Cout) se conecta a c2, y la suma (Sum[1]) es el siguiente bit del resultado.
-
-*sum1b s2: Suma los bits A[2] y B[2], con el acarreo de salida del sumador anterior (c2) como acarreo de entrada (Ci). La salida del acarreo (Cout) se conecta a c3, y la suma (Sum[2]) es el siguiente bit del resultado.
-
-*sum1b s3: Suma los bits más significativos A[3] y B[3], con el acarreo de salida del sumador anterior (c3) como acarreo de entrada (Ci). La salida del acarreo (Cout) es el acarreo final del sumador de 4 bits, y la suma (Sum[3]) es el bit más significativo del resultado.
-
-El sumador de 4 bits utiliza 4 instancias del modulo sum1b para poder lograr la suma de dos numeros de 4 bits creando una posicion especifica en los resultados de la suma generando que los acareos se pasen a traves de cada sumador generando el resultado final.
-
-Resultado Sum4b_tb Test Bench:
-![tb](./Imag/tb.PNG)
-### 3.Simulacion Sumador 4 bits
+### 3.Implementacion FPGA
 ---------------------------------------------------
 Generamos por terminal del visual la simulacion del sumador de 4 bits por GTKWAVE:
-```
-C:\Users\SantiagoPC\Documents\ARQUITECTURA_PROCESADORES\Arquitectura_Proce_Ecci\2_sum4b> gtkwave .\build\sum4b_tb.vcd
-```
 
+1.Configuracion Pines FPGA
 Simulacion:
 ![gtkwave4bits](./Imag/gtkwave.PNG)
-Con la ayuda de la herramienta de simulacion GTKWave podemos ver el funcionamiento del programa antes de cargarlo a nuestra FPGA, una vez ejecutado podemos ver la señal de entrada A y B de nuestros 4 sumadores  junto al Carry .
 
