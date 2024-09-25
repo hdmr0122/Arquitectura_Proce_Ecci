@@ -1,4 +1,3 @@
-
     module restador_4bit (
         input [3:0] A,           // Minuendo de 4 bits
         input  [3:0] B,           // Sustraendo de 4 bits

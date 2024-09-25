@@ -1,5 +1,3 @@
-
-
 module sum4b (
         input  [3:0] A,
         input  [3:0] B,

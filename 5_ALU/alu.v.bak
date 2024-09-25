@@ -1,0 +1,39 @@
+`include "sum4bit.v"
+`include "Restador_4bit.v"
+`include "mult.v"
+
+
+module alu(
+     input  [3:0] A,
+     input  [3:0] B,
+     input  [1:0] sel,
+     input  CI,
+     output  reg [7:0] cout
+);
+
+//Instancia Operaciones 
+
+wire [3:0] sum_out;
+
+sum4b  sum1 (.A(A),.B(B),.Sum(sum_out));
+
+wire [3:0] rest_out;
+
+restador_4bit  res1(.A(A),.B(B),.salida(rest_out));
+
+wire [7:0] mul_out;
+
+multiplicador mul1(.MR(A),.MD(B),.pp(mul_out)); 
+
+always @(*) begin
+     case(sel)
+          4'b0000: cout = sum_out ;
+          4'b0001: cout = rest_out ;
+          4'b0010: cout = mul_out ;
+
+          default : cout = 8'b00000000;  
+     endcase
+end
+
+
+endmodule
