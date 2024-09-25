@@ -8,7 +8,7 @@ module alu(
      output  reg [7:0] cout
 );
 
-//Instancia Operaciones 
+//Instancia Operaciones s
 
 wire [3:0] sum_out;
 
